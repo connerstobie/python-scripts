@@ -12,7 +12,7 @@ args = parser.parse_args()
 # Connect to S3
 s3 = boto3.client('s3')
 
-# Set the S3 bucket and file name from args
+# Set the S3 bucket and file name from argså
 bucket_name = args.bucket
 file_name = args.file
 
