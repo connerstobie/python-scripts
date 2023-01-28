@@ -17,6 +17,6 @@ if 'Contents' in result:
     key = result['Contents'][0]['Key']
     # Download the file
     s3.download_file(bucket_name, key, file_name)
-    print(f'File {file_name} was found in the bucket, saving to the local directory.')
+    print(f'File {file_name} was found, saving to the local directory.')
 else:
-    print(f'File {file_name} was not found in the bucket.')
+    print(f'File {file_name} was not found in the {bucket_name} bucket.')
