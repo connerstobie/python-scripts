@@ -1,12 +1,20 @@
 #!/usr/bin/python3
 import boto3
+import argparse
+
+# create command line arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('-b', '--bucket', help='s3 bucket to search', required=True)
+parser.add_argument('-f', '--file', help='file to retrieve', required=True)
+
+args = parser.parse_args()
 
 # Connect to S3
 s3 = boto3.client('s3')
 
-# Specify the S3 bucket and file name to search for
-bucket_name = 'bucket-name'
-file_name = 'file-name'
+# Set the S3 bucket and file name from args
+bucket_name = args.bucket
+file_name = args.file
 
 # Search for the file in the bucket
 result = s3.list_objects_v2(Bucket=bucket_name, Prefix=file_name)
